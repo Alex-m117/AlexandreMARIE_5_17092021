@@ -1,0 +1,23 @@
+{
+  "name": "orinoco-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/style.scss:./css/style.css",
+    "prefix": "postcss ./AlexandreMARIE_3_16072021/style.css --use autoprefixer -d ./AlexandreMARIE_5_17092021/prefixed/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandre MARIE",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "express": "^4.17.1",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0"
+  }
+}
