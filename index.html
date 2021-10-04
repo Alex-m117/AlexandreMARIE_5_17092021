@@ -17,7 +17,7 @@
 
 
 <link rel="canonical" href="https://alex-m117.github.io/AlexandreMARIE_5_17092021/"/>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="./front-end/css/style.css" />
 
 <!-- Open Graph meta pour Facebook -->
 <meta property="og:title" content="Accueil - Orinoco | Oripic | Appareil photo vintage" />
@@ -51,7 +51,7 @@
 	<header class="header">
 		<div class="header__bloc">
 
-			<div class="header__log"> <a class="header__titre"> Oniroco </a> </div>
+			<div class="header__log"> <a class="header__titre" href="index.html"> Oniroco </a> </div>
 
 			<nav class="header__nav"> 
 				<a class="accueil" href="index.html"> <i class="fas fa-home"></i> </a>
@@ -62,26 +62,76 @@
 	</header>
 
 		<div class="oripic">
-			<h1 class="h1"> Oripic </h1>
+			<h1 class="h1"> Ori<span id="h1__color">pic</span></h1>
+			<p class="h1__desc"> Appareils photos <span id="h1__color">vintage</span> </p>
 		</div>
 
-	<div class="picbloc"> </div>
+	<div class="picbloc"> 
+	<div class="picrow">
+			
+		<div class="cameras" id="cameras__zurss"> 
+			<div class="cameras__vignette">
+					<h3 class="h3"> Zurss 50S </h3>
+					<img class="cameras__image" src="./back-end/images/vcam_1.jpg" alt="Appareil photo Zurss">
+					<div class="cameras__price" id="5be1ed3f1c9d44000030b061"> <p class="price">Prix: 49900<strong>€</strong></p> </div>
+						<div class="cameras__achat">
+						<a class="cameras__details" href=""> Détails </a>
+						<button class="cameras__panier"> Ajouter au panier </button>
+						</div>
+			 </div>
+		</div>
+
+		<div class="cameras" id="cameras__hirsch"> 
+			<div class="cameras__vignette">
+					<h3 class="h3"> Hirsch 400DTS </h3>
+					<img class="cameras__image" src="./back-end/images/vcam_2.jpg" alt="Appareil photo Hirsch">
+					<div class="cameras__price" id="5be1ef211c9d44000030b062"> <p class="price">Prix: 309900<strong>€</strong></p> </div>
+						<div class="cameras__achat">
+						<a class="cameras__details" href=""> Détails </a>
+						<button class="cameras__panier"> Ajouter au panier </button>
+						</div>
+			 </div>
+		</div>
+
+		<div class="cameras" id="cameras__franck"> 
+			<div class="cameras__vignette">
+					<h3 class="h3"> Franck JS 105 </h3>
+					<img class="cameras__image" src="./back-end/images/vcam_3.jpg" alt="Appareil photo Franck">
+					<div class="cameras__price" id="5be9bc241c9d440000a730e7"> <p class="price">Prix: 209900<strong>€</strong></p> </div>
+						<div class="cameras__achat">
+						<a class="cameras__details" href=""> Détails </a>
+						<button class="cameras__panier"> Ajouter au panier </button>
+						</div>
+			 </div>
+		</div>
+
+		<div class="cameras" id="cameras__kuros"> 
+			<div class="cameras__vignette">
+					<h3 class="h3"> Kuros TTS </h3>
+					<img class="cameras__image" src="./back-end/images/vcam_4.jpg" alt="Appareil photo Kuros">
+					<div class="cameras__price" id="5be9c4471c9d440000a730e8"> <p class="price">Prix: 159900<strong>€</strong></p> </div>
+						<div class="cameras__achat">
+						<a class="cameras__details" href=""> Détails </a>
+						<button class="cameras__panier"> Ajouter au panier </button>
+						</div>
+			 </div>
+		</div>
+
+		<div class="cameras" id="cameras__katatone"> 
+			<div class="cameras__vignette">
+					<h3 class="h3"> Katatone </h3>
+					<img class="cameras__image" src="./back-end/images/vcam_5.jpg" alt="Appareil photo Katatone">
+					<div class="cameras__price" id="5be9c4c71c9d440000a730e9"> <p class="price">Prix: 59900<strong>€</strong></p> </div>
+					<div class="cameras__achat">
+						<a class="cameras__details"> Détails </a>
+						<button class="cameras__panier"> Ajouter au panier </button>
+						</div>
+			 </div>
+		</div>
 
 
-<ul class="cameras">
-
-	<li class="cameras__zurss"> 
-		<div class="cameras__">
-
-	</li>
-
-<li class="cameras__hirsch"> </li>
-<li class="cameras__franck"> </li>
-<li class="cameras__kuros"> </li>
-
-
-<ul>
-
+	</div>
+	</div>
 
 	<footer class="footer">
 

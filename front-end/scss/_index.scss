@@ -1,0 +1,112 @@
+
+
+.oripic{
+		@extend .container;
+		@extend .col-3;
+		@extend .mt-4;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.h1{
+	text-decoration: none;
+	font-size: 40px;
+	font-family: 'Belligerent Madness', arial;
+	color: #353535;
+}
+
+#h1__color{
+	color: #6e441a;
+}
+
+.h1__desc{
+	font-family: 'Belligerent Madness', arial;
+}
+
+.picbloc{
+		@extend .container;
+		@extend .mb-4;
+	display: flex;
+	justify-content: center;
+	height: auto;
+}
+
+.picrow {
+		@extend .row;
+		@extend .col-12;
+		@extend .mt-2;	
+		@extend .mb-2;
+	display: flex;
+	justify-content: space-around;
+}
+
+.cameras{
+		@extend .col-5;
+		@extend .mt-2;
+		@extend .mb-2;
+	display: flex;
+	flex-wrap: wrap;
+	padding:0;
+	background-color: #353535;
+	border-radius: 20px;	
+}
+
+.h3{
+		@extend .pt-2;
+	text-align: center;
+	color: #ffffff;
+}
+
+.cameras__image{
+	border-radius: 20px;
+	width: 100%;
+	object-fit: cover;
+}
+
+.price{
+		@extend .mt-1;
+	text-align: center;
+	color: #ffffff;
+}
+
+.cameras__achat{
+		@extend .pb-3;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.cameras__details{
+	width: 20%;
+	height: 30px;
+	background-color: #eee6e1;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	border-radius: 15px;
+}
+
+.cameras__panier{
+	width: 35%;
+	height: 30px;
+	text-align: center;
+	text-decoration: none;
+	border-style: none;
+	background-color: #eee6e1;
+	border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

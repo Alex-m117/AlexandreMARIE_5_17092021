@@ -1,11 +1,11 @@
 {
   "name": "orinoco-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projet 5 d'Openclassrooms",
   "main": "server.js",
   "scripts": {
-    "sass": "sass --watch ./scss/style.scss:./css/style.css",
-    "prefix": "postcss ./AlexandreMARIE_3_16072021/style.css --use autoprefixer -d ./AlexandreMARIE_5_17092021/prefixed/",
+    "sass": "sass --watch ./front-end/scss/style.scss:./front-end/css/style.css",
+    "prefix": "postcss ./front-end/css/style.css --use autoprefixer -d ./AlexandreMARIE_5_17092021/prefixed/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexandre MARIE",
