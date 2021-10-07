@@ -49,33 +49,91 @@
 
 		<div class="bloc__page"> 
 
-<header class="header">
+	<header class="header">
 		<div class="header__bloc">
 
-			<div class="header__log"> <a class="header__titre"> Oniroco </a> </div>
+			<div class="header__logo"> <a class="header__titre" href="../../index.html"> Oniroco </a> </div>
 
 			<nav class="header__nav"> 
-				<a class="accueil" href="index.html"> <i class="fas fa-home"></i> </a>
-				<a class="panier" href="panier.html"> <i class="fas fa-shopping-cart"></i> </a>
+				<a class="panier" href="#"> <i class="fas fa-shopping-cart"></i> </a>
 			</nav>
 
 		</div>
 	</header>
 
+		<div class="oripic">
+			<h1 class="h1"> Panier </h1>
+			<p class="h1__desc"> Ori<span id="h1__color">pic</span> </p>
+		</div>
+
+	<div class="panier__bloc">
+	<div class="panier__row1">
+
+		<h2 class="panier__h2"> Vos Articles </h2>
+
+	<table class="panier__recap" id="panier">
+		<tbody class="panier__form">
+			<tr>
+
+			<td class="panier__desc"> <img class="panier__image" src="../../back-end/images/vcam_1.jpg"> <p class="panier__titre"> Zurss 50S </p> </td>
+				<td class="panier__delete"> <button class="button_del" id="delete"> <i class="far fa-trash-alt"></i> </button> </td>
+	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_2.jpg"> <p class="panier__titre"> Hirsch 400DTS </p> </td> -->
+	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_3.jpg"> <p class="panier__titre"> Franck JS 105 </p> </td> -->
+	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_4.jpg"> <p class="panier__titre"> Kuros TTS </p> </td> -->
+	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_5.jpg"> <p class="panier__titre"> Katatone </p> </td> -->
+				<thead>
+					<th> Lentille </th>
+					<th> Quantité </th>
+					<th> Prix </th>
+				</thead>
+			<td class="panier__lenses"> 35mm 1.4 </td>
+	<!--	<td class="panier__lenses"> 50mm 1.6 </td> 	-->
+	<!--	<td class="panier__lenses"> 50mm 1.8</td> 	-->
+	<!--	<td class="panier__lenses"> 60mm 2.8 </td> 	-->
+	<!--	<td class="panier__lenses"> 25mm 4.5 </td> 	-->
+	<!--	<td class="panier__lenses"> 50mm 1.7 </td> 	-->
+	<!--	<td class="panier__lenses"> 50mm 1.4 </td> 	-->
+	<!--	<td class="panier__lenses"> 35mm 1.8 </td> 	-->
+	<!--	<td class="panier__lenses"> 28-200mm 2.8/4.5 </td> 	-->
+			
+			<td class="panier__quantite"> <input class="quantite" id="quantite" type="number" name="Quantité" min="1" max="10"> </td>
+			
+			<td class="panier__prix"> 49900 € </td>
+		
+						
+			</tr>
+		</tbody>
+	</table>
+	</div>
+
+	<div class="panier__row2">
+
+		<div class="total__article"> Total Articles <p id="total"> ****€ </p> </div>
+
+		<form class="formulaire">
+
+		<h2 class="panier__h2"> Validation </h2>
+			
+			<div class="formulaire__info"> <input id="nom" type="text" name="Nom" placeholder=" Votre nom"> </div>
+
+			<div class="formulaire__info"> <input id="prenom" type="text" name="Prenom" placeholder="Votre prénom"> </div>
+
+			<div class="formulaire__info"> <input id="mail" type="email" name="E-mail" placeholder="Votre adresse e-mail"> </div>
+
+			<div class="formulaire__info"> <input id="adresse" type="text" name="Adresse" placeholder="Votre adresse"> </div>
+
+			<div class="formulaire__info"> <input id="postal" type="text" name="Code Postal" placeholder="Votre code postal"> </div>
+
+			<div class="formulaire__info"> <input id="ville" type="text" name="Ville" placeholder="Votre ville"> </div>
+
+		</form>
 
 
+			<button class="commander" type="submit"> Valider </button>
+	</div>
 
-
-
-
-
-
-
-
-
-
-
-
+	</div>
+</div>
 		<footer class="footer">
 
 						<div class="footer__liens">
@@ -95,8 +153,6 @@
 						</div>
 
 
-
-		
 		</footer>
 		</div>
 		

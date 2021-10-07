@@ -1,0 +1,185 @@
+.panier__bloc{
+		@extend .container;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.panier__row1{
+		@extend .row;
+		@extend .justify-content-center;
+
+}
+
+.panier__row2{
+		@extend .row;
+		@extend .justify-content-center;
+
+}
+
+.panier__recap{
+		@extend .col-8;
+		@extend .col-md-11;
+		@extend .col-xl-9;
+	display: flex;
+	flex-wrap:wrap;
+	padding: 0;
+}
+
+.panier__form{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+.panier__desc{
+		@extend .col-sm-12;
+		@extend .col-md-5;
+		@extend .col-12;
+	display:flex;
+	align-items: center;
+	flex-direction: row;
+}
+
+.panier__image{	
+	width: 70%;
+	border-radius: 25px;
+
+}
+
+.panier__titre{
+	display: flex;
+	justify-content: space-around;
+	width: 40%;
+	margin: 0;
+}
+
+th {
+		@extend .col-4;
+	display: flex;
+	justify-content: space-around;
+}
+
+tr{
+		@extend .flex-column;
+		@extend .flex-md-row;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;	
+}
+
+.panier__lenses{
+		@extend .col-4;
+	text-align: center;
+
+}
+
+.panier__quantite{
+		@extend .col-4;
+	text-align: center;
+}
+
+.quantite{
+		
+}
+
+.panier__prix{
+		@extend .col-4;
+	text-align: center;
+}
+
+.panier__delete{	
+	text-align: center;
+}
+
+.formulaire{
+		@extend .row;
+}
+
+.formulaire__info{
+		@extend .col-12;
+		@extend .col-sm-6;
+		@extend .mb-2;
+		@extend .mt-2;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+#nom, #prenom, #mail, #adresse, #postal, #ville{
+	width: 100%;
+}
+
+.panier__h2{
+	display: flex;
+	justify-content: center;
+}
+
+.formulaire{
+		@extend .mb-5;
+		@extend .mt-2;
+	border-radius: 25px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.commander{
+	margin-bottom: 60px;
+	border-style: none;
+	border-radius: 25px;
+	width: 30%;
+	color:#ffffff;
+	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
+}
+
+#total {
+	color:#ffffff;
+}
+
+thead {
+		@extend .col-12;
+}
+
+tbody {
+		@extend .col-12;
+}
+
+.total__article{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom:60px;
+	width: 30%;
+	padding-top: 10px;
+	color:#ffffff;
+	border-radius: 25px;
+	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
