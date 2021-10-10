@@ -72,21 +72,25 @@
 		<h2 class="panier__h2"> Vos Articles </h2>
 
 	<table class="panier__recap" id="panier">
-		<tbody class="panier__form">
-			<tr>
 
-			<td class="panier__desc"> <img class="panier__image" src="../../back-end/images/vcam_1.jpg"> <p class="panier__titre"> Zurss 50S </p> </td>
-				<td class="panier__delete"> <button class="button_del" id="delete"> <i class="far fa-trash-alt"></i> </button> </td>
+			<thead class="panier__head">
+			<tr>
+				<th class="panier__head1"> Zurss 50S </th>
+				<th class="panier__head2"> Lentille </th>
+				<th class="panier__head3"> Quantité </th>
+				<th class="panier__head4"> Prix </th>
+				<th class="panier__head5"> Supprimer </th>
+			</tr>
+			</thead>
+			
+			<tbody class="panier__body">
+			<tr>
+				<td class="panier__desc"> <img class="panier__image" src="../../back-end/images/vcam_1.jpg">  </td>
 	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_2.jpg"> <p class="panier__titre"> Hirsch 400DTS </p> </td> -->
 	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_3.jpg"> <p class="panier__titre"> Franck JS 105 </p> </td> -->
 	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_4.jpg"> <p class="panier__titre"> Kuros TTS </p> </td> -->
 	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_5.jpg"> <p class="panier__titre"> Katatone </p> </td> -->
-				<thead>
-					<th> Lentille </th>
-					<th> Quantité </th>
-					<th> Prix </th>
-				</thead>
-			<td class="panier__lenses"> 35mm 1.4 </td>
+				<td class="panier__lenses"> 35mm 1.4 </td>
 	<!--	<td class="panier__lenses"> 50mm 1.6 </td> 	-->
 	<!--	<td class="panier__lenses"> 50mm 1.8</td> 	-->
 	<!--	<td class="panier__lenses"> 60mm 2.8 </td> 	-->
@@ -95,17 +99,14 @@
 	<!--	<td class="panier__lenses"> 50mm 1.4 </td> 	-->
 	<!--	<td class="panier__lenses"> 35mm 1.8 </td> 	-->
 	<!--	<td class="panier__lenses"> 28-200mm 2.8/4.5 </td> 	-->
-			
-			<td class="panier__quantite"> <input class="quantite" id="quantite" type="number" name="Quantité" min="1" max="10"> </td>
-			
-			<td class="panier__prix"> 49900 € </td>
-		
-						
+				<td class="panier__quantite"> <input class="quantite" id="quantite" type="number" name="Quantité" min="1" max="10"> </td>
+				<td class="panier__prix"> 49900 € </td>
+				<td class="panier__delete"> <button class="button__del" id="delete"> <i class="far fa-trash-alt"></i> </button> </td>
 			</tr>
-		</tbody>
+			</tbody>
 	</table>
-	</div>
-
+	</div>		
+			
 	<div class="panier__row2">
 
 		<div class="total__article"> Total Articles <p id="total"> ****€ </p> </div>
@@ -114,17 +115,17 @@
 
 		<h2 class="panier__h2"> Validation </h2>
 			
-			<div class="formulaire__info"> <input id="nom" type="text" name="Nom" placeholder=" Votre nom"> </div>
+			<div class="formulaire__info"> <input id="nom" type="text" name="Nom" placeholder="Dupont"> </div>
 
-			<div class="formulaire__info"> <input id="prenom" type="text" name="Prenom" placeholder="Votre prénom"> </div>
+			<div class="formulaire__info"> <input id="prenom" type="text" name="Prenom" placeholder="Henri"> </div>
 
-			<div class="formulaire__info"> <input id="mail" type="email" name="E-mail" placeholder="Votre adresse e-mail"> </div>
+			<div class="formulaire__info"> <input id="mail" type="email" name="E-mail" placeholder="henridupont@monemail.com"> </div>
 
-			<div class="formulaire__info"> <input id="adresse" type="text" name="Adresse" placeholder="Votre adresse"> </div>
+			<div class="formulaire__info"> <input id="adresse" type="text" name="Adresse" placeholder="9 rue des lilas"> </div>
 
-			<div class="formulaire__info"> <input id="postal" type="text" name="Code Postal" placeholder="Votre code postal"> </div>
+			<div class="formulaire__info"> <input id="postal" type="text" name="Code Postal" placeholder="56000"> </div>
 
-			<div class="formulaire__info"> <input id="ville" type="text" name="Ville" placeholder="Votre ville"> </div>
+			<div class="formulaire__info"> <input id="ville" type="text" name="Ville" placeholder="Vannes"> </div>
 
 		</form>
 
