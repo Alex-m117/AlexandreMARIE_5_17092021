@@ -656,7 +656,7 @@ progress {
     max-width: 1320px;
   }
 }
-.row, .picrow, .header__bloc, .products, .formulaire, .panier__row2, .panier__row1 {
+.row, #picrow, .header__bloc, .products, .formulaire, .panier__row2, .panier__row1 {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   display: flex;
@@ -665,7 +665,7 @@ progress {
   margin-right: calc(var(--bs-gutter-x) * -.5);
   margin-left: calc(var(--bs-gutter-x) * -.5);
 }
-.row > *, .picrow > *, .header__bloc > *, .products > *, .formulaire > *, .panier__row2 > *, .panier__row1 > * {
+.row > *, #picrow > *, .header__bloc > *, .products > *, .formulaire > *, .panier__row2 > *, .panier__row1 > * {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
@@ -773,7 +773,7 @@ progress {
   width: 91.66666667%;
 }
 
-.col-12, .picrow, .products__vignette, .products__image, .panier__body, .panier__head, .panier__recap {
+.col-12, #picrow, .products__vignette, .products__image, .panier__body, .panier__head, .panier__recap {
   flex: 0 0 auto;
   width: 100%;
 }
@@ -7146,7 +7146,7 @@ textarea.form-control-lg {
   margin-top: 0.25rem !important;
 }
 
-.mt-2, .cameras, .picrow, .products__h1, .formulaire__info, .formulaire {
+.mt-2, .cameras, #picrow, .products__h1, .formulaire__info, .formulaire {
   margin-top: 0.5rem !important;
 }
 
@@ -7202,7 +7202,7 @@ textarea.form-control-lg {
   margin-bottom: 0.25rem !important;
 }
 
-.mb-2, .cameras, .picrow, .formulaire__info {
+.mb-2, .cameras, #picrow, .formulaire__info {
   margin-bottom: 0.5rem !important;
 }
 
@@ -11129,14 +11129,8 @@ p {
   color: black;
 }
 
-/*** Règles Média Queries résolutions >768px (-md) ***/
-@media (min-width: screen-md-min) {
-  /** containers **/
-  .header__bloc {
-    justify-content: space-between;
-  }
-}
-/*** Fin des règles Média Queries résolutions >768px ***/
+/*** Règles Média Queries résolutions  () ***/
+/*** Fin des règles Média Queries résolutions  ***/
 .panier__recap {
   display: flex;
   flex-wrap: wrap;
@@ -11252,6 +11246,12 @@ tr {
 
 #nom, #prenom, #mail, #adresse, #postal, #ville {
   width: 100%;
+}
+
+.lien__confirm {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .commander {
@@ -11451,7 +11451,7 @@ tr {
   height: auto;
 }
 
-.picrow {
+#picrow {
   display: flex;
   justify-content: space-around;
 }

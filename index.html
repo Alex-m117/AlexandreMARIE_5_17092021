@@ -54,7 +54,7 @@
 			<div class="header__logo"> <a class="header__titre" href="index.html"> Oniroco </a> </div>
 
 			<nav class="header__nav"> 
-				<a class="panier" href="panier.html"> <i class="fas fa-shopping-cart"></i> </a>
+				<a class="panier" href="./front-end/pages/panier.html"> <i class="fas fa-shopping-cart"></i> </a>
 			</nav>
 
 		</div>
@@ -66,77 +66,24 @@
 		</div>
 
 	<div class="picbloc"> 
-	<div class="picrow">
-			
-		<div class="cameras" id="cameras__zurss">
-		<a class="cameras__lien" id="5be1ed3f1c9d44000030b061" href="./front-end/pages/products.html"> 
+	<div id="picrow">
+
+	<template id="tempindex">
+		<div class="cameras" id="CamList"> 
+		<a class="cameras__lien" id="">
 			<div class="cameras__vignette">
 					
-					<img class="cameras__image" src="./back-end/images/vcam_1.jpg" alt="Appareil photo Zurss">
-					<h3 class="h3"> Zurss 50S </h3>
+					<img id="cameras__image" class="cameras__image" src="" alt="">
+					<h3 id="h3" class="h3"> Franck JS 105 </h3>
 					<div class="cameras__desc">
-						<div class="cameras__note"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> </div>
-						<div class="cameras__price"> <p class="price">Prix: 49 900<strong>€</strong></p> </div>
+						<div class="cameras__note"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </div>
+						<div class="cameras__price"> <p id="price" class="price"></p> </div>
 					</div>
 			 </div>
 		</a>
 		</div>
+	</template>
 
-		<div class="cameras" id="cameras__hirsch">
-		<a class="cameras__lien" id="5be1ef211c9d44000030b062"> 
-			<div class="cameras__vignette">
-					
-					<img class="cameras__image" src="./back-end/images/vcam_2.jpg" alt="Appareil photo Hirsch">
-					<h3 class="h3"> Hirsch 400DTS </h3>
-					<div class="cameras__desc">
-						<div class="cameras__note"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </div>
-						<div class="cameras__price"> <p class="price">Prix: 309 900<strong>€</strong></p> </div>
-					</div>
-			 </div>
-		</a>
-		</div>
-
-		<div class="cameras" id="cameras__franck"> 
-		<a class="cameras__lien" id="5be9bc241c9d440000a730e7">
-			<div class="cameras__vignette">
-					
-					<img class="cameras__image" src="./back-end/images/vcam_3.jpg" alt="Appareil photo Franck">
-					<h3 class="h3"> Franck JS 105 </h3>
-					<div class="cameras__desc">
-						<div class="cameras__note"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </div>
-						<div class="cameras__price"> <p class="price">Prix: 209 900<strong>€</strong></p> </div>
-					</div>
-			 </div>
-		</a>
-		</div>
-
-		<div class="cameras" id="cameras__kuros">
-		<a class="cameras__lien" id="5be9c4471c9d440000a730e8">
-			<div class="cameras__vignette">
-					
-					<img class="cameras__image" src="./back-end/images/vcam_4.jpg" alt="Appareil photo Kuros">
-					<h3 class="h3"> Kuros TTS </h3>
-					<div class="cameras__desc">
-						<div class="cameras__note"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </div>
-						<div class="cameras__price"> <p class="price">Prix: 159 900<strong>€</strong></p> </div>
-					</div>
-			</div>
-		</a>
-		</div>
-	
-		<div class="cameras" id="cameras__katatone"> 
-		<a class="cameras__lien" id="5be9c4c71c9d440000a730e9">
-			<div class="cameras__vignette">
-					
-					<img class="cameras__image" src="./back-end/images/vcam_5.jpg" alt="Appareil photo Katatone">
-					<h3 class="h3"> Katatone </h3>
-					<div class="cameras__desc">
-						<div class="cameras__note"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i> </div>
-						<div class="cameras__price"> <p class="price">Prix: 59 900<strong>€</strong></p> </div>
-					</div>
-			</div>
-		</a>
-		</div>
 
 	</div>
 	</div>
@@ -164,5 +111,8 @@
 
 
 </div>
+
+		<script src="front-end/js/index.js"></script>
+
 	</body>
  </html>
