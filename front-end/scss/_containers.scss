@@ -44,6 +44,7 @@
 }
 
 .panier{
+	z-index: 1;
 	font-size: 30px;
 	align-items: center;
 	color: #ffffff;
@@ -51,6 +52,26 @@
 			text-decoration: none;
 			color: #ffffff;
 	}
+}
+
+.panier__notif{
+	z-index: 2;
+	font-size: 5px;
+	height: 15px;
+	padding: 5px;
+	position: absolute;
+	background-color: #d3d3d3;
+	border-radius: 25px;
+	margin-left: 25px;
+	margin-top: -40px;
+}
+
+#panier__num{
+	z-index: 3;
+	font-size: 10px;
+	color: black;
+	text-align: center;
+	margin-top: -5px;
 }
 
 .footer{
@@ -68,4 +89,7 @@
 	font-size:30px;
 	padding:10px;
 	color: #ffffff;
+		&:hover {
+			color: #b38266;
+	}
 }

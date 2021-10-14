@@ -1,15 +1,15 @@
-const urlCameras = 'https://localhost:3000/api/cameras';
+const url= "http://localhost:3000/api/cameras";
 
 (async function arrPic() {
 	const camera = await getItems()
-console.log (camera)
+
 	for (items of camera) {
 		displayItems(items) 
 	}
 })()
 
 function getItems(){
-	return fetch ("urlCameras")
+	return fetch ("url")
 		.then(function(response){
 			return response.json()
 		})
@@ -20,7 +20,7 @@ function getItems(){
 			alert (err)
 		})
 }
-console.log(getItems)
+
 
 function displayItems(items){
 	const templateElt = document.getElementById("tempindex") 
@@ -34,7 +34,8 @@ function displayItems(items){
 
 }
 
-console.log(displayItems)
+
+
 
 
 
