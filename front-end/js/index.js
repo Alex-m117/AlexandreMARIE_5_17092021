@@ -1,4 +1,4 @@
-const url= "http://localhost:3000/api/cameras";
+const url = "http://localhost:3000/api/cameras";
 
 (async function arrPic() {
 	const camera = await getItems()
@@ -6,10 +6,10 @@ const url= "http://localhost:3000/api/cameras";
 	for (items of camera) {
 		displayItems(items) 
 	}
-})()
+})();
 
 function getItems(){
-	return fetch ("url")
+	return fetch (url)
 		.then(function(response){
 			return response.json()
 		})
@@ -19,20 +19,20 @@ function getItems(){
 		.catch(function(err){
 			alert (err)
 		})
-}
-
+};
 
 function displayItems(items){
-	const templateElt = document.getElementById("tempindex") 
-	const cloneElt = document.importNode(template.content, true);
+	const templateElt = document.getElementById("tempindex");
+	const cloneElt = document.importNode(templateElt.content, true);
 
-	clone.getElementById("cameras__image").src = items.imageUrl
-	clone.getElementById("h3").textContent = items.name
-	clone.getElementById("price").textContent = items.price + '€'
+	cloneElt.querySelector(".cameras__lien").href = "./front-end/pages/products.html?id="+items._id;
+	cloneElt.querySelector(".cameras__image").src = items.imageUrl;
+	cloneElt.querySelector(".h3").textContent = items.name;
+	cloneElt.querySelector(".price").textContent = items.price/100+ '€';
 
-	document.getElementById("picrow").appendChild(cloneElt)
+	document.getElementById("picforms").appendChild(cloneElt);
 
-}
+};
 
 
 
