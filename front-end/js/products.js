@@ -58,8 +58,6 @@ function addBasket(item) {
 
 let localAddProduct = JSON.parse(localStorage.getItem("item"));
 
-
-
 };
 
 
