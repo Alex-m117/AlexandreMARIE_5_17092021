@@ -21,11 +21,12 @@
 .products__image{
 		@extend .col-12;
 		@extend .col-md-6;
-		object-fit: cover;
+	object-fit: cover;
 	border-radius: 35px;
 }
 
 .products__note{
+		@extend .mt-2;
 	justify-content: center;
 }
 
@@ -51,8 +52,8 @@
 	text-align: center;
 }
 
-.products__lenses{
-
+.products__choix{
+	text-align: center;
 }
 
 .products__panier{
