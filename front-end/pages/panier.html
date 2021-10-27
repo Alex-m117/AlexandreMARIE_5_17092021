@@ -67,7 +67,14 @@
 		</div>
 
 	<div class="panier__bloc">
+
 	<div class="panier__row1">
+
+	<div id="panier__vide"> </div>
+	
+	<div id="panierforms">
+
+	<template id="temppanier">
 
 		<h2 class="panier__h2"> Vos Articles </h2>
 
@@ -75,7 +82,7 @@
 
 			<thead class="panier__head">
 			<tr>
-				<th class="panier__head1"> Zurss 50S </th>
+				<th class="panier__head1"> </th>
 				<th class="panier__head2"> Lentille </th>
 				<th class="panier__head3"> Quantité </th>
 				<th class="panier__head4"> Prix </th>
@@ -85,28 +92,20 @@
 			
 			<tbody class="panier__body">
 			<tr>
-				<td class="panier__desc"> <img class="panier__image" src="../../back-end/images/vcam_1.jpg">  </td>
-	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_2.jpg"> <p class="panier__titre"> Hirsch 400DTS </p> </td> -->
-	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_3.jpg"> <p class="panier__titre"> Franck JS 105 </p> </td> -->
-	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_4.jpg"> <p class="panier__titre"> Kuros TTS </p> </td> -->
-	<!-- 	<td class="panier__desc"> <img src="../../back-end/images/vcam_5.jpg"> <p class="panier__titre"> Katatone </p> </td> -->
-				<td class="panier__lenses"> 35mm 1.4 </td>
-	<!--	<td class="panier__lenses"> 50mm 1.6 </td> 	-->
-	<!--	<td class="panier__lenses"> 50mm 1.8</td> 	-->
-	<!--	<td class="panier__lenses"> 60mm 2.8 </td> 	-->
-	<!--	<td class="panier__lenses"> 25mm 4.5 </td> 	-->
-	<!--	<td class="panier__lenses"> 50mm 1.7 </td> 	-->
-	<!--	<td class="panier__lenses"> 50mm 1.4 </td> 	-->
-	<!--	<td class="panier__lenses"> 35mm 1.8 </td> 	-->
-	<!--	<td class="panier__lenses"> 28-200mm 2.8/4.5 </td> 	-->
+				<td class="panier__desc"> <img class="panier__image" src=""> </td>
+				<td class="panier__lenses"> </td>
 				<td class="panier__quantite"> <input class="quantite" id="quantite" type="number" name="Quantité" min="1" max="10"> </td>
-				<td class="panier__prix"> 49900 € </td>
+				<td class="panier__prix"> </td>
 				<td class="panier__delete"> <button class="button__del" id="delete"> <i class="far fa-trash-alt"></i> </button> </td>
 			</tr>
 			</tbody>
 	</table>
-	</div>		
-			
+
+	</template>
+
+	</div>
+	</div>	
+		
 	<div class="panier__row2">
 
 		<div class="total__article"> Total Articles <p id="total"> ****€ </p> </div>
@@ -154,8 +153,7 @@
 						</div>
 
 
-		</footer>
-		</div>
-		
+		</footer> 
+		<script src="./../js/panier.js"></script>
 	</body>
 </html>

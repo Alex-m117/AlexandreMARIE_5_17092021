@@ -46,7 +46,6 @@ function displayProduct(item){
 
 };
 
-
 function addPanier(item) {
 
 	const btnPanier = document.querySelector(".products__panier");
@@ -60,6 +59,7 @@ function addPanier(item) {
 	let camProduct = {
 
 	nom: item.name,
+	image: item.imageUrl,
 	id: item._id,
 	lentilles: choixLenses,
 	prix: item.price / 100 + "€",
@@ -69,23 +69,19 @@ function addPanier(item) {
 
 	let addLocalStorage = JSON.parse(localStorage.getItem("products"));
 
-	console.log(addLocalStorage) 
-
-	if(addLocalStorage) {
+	function addStorage () {
 		addLocalStorage.push(camProduct);
 		localStorage.setItem("products", JSON.stringify(addLocalStorage));
-		console.log(addLocalStorage) 
-	}
+	};
 
+	if(addLocalStorage) {
+		addStorage();
+	}
 
 	else {
 		addLocalStorage = [];
-		addLocalStorage.push(camProduct);
-		localStorage.setItem("products", JSON.stringify(addLocalStorage));
-		console.log(addLocalStorage) 
+		addStorage();
 		}
-
-			
 }
 )};
 
