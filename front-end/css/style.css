@@ -5,6 +5,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -723,12 +724,12 @@ progress {
   width: 8.33333333%;
 }
 
-.col-2 {
+.col-2, .panier__image {
   flex: 0 0 auto;
   width: 16.66666667%;
 }
 
-.col-3, .panier__quantite, .panier__head3 {
+.col-3, .panier__quantite, .panier__titre, .panier__head3 {
   flex: 0 0 auto;
   width: 25%;
 }
@@ -743,7 +744,7 @@ progress {
   width: 41.66666667%;
 }
 
-.col-6, .panier__delete, .panier__head5 {
+.col-6, .panier__delete, .panier__head5, .panier__vide {
   flex: 0 0 auto;
   width: 50%;
 }
@@ -927,12 +928,12 @@ progress {
     width: auto;
   }
 
-  .col-sm-1 {
+  .col-sm-1, .panier__titre {
     flex: 0 0 auto;
     width: 8.33333333%;
   }
 
-  .col-sm-2, .panier__delete, .panier__prix, .panier__quantite, .panier__head5, .panier__head4, .panier__head3 {
+  .col-sm-2, .panier__delete, .panier__prix, .panier__quantite, .panier__image, .panier__head5, .panier__head4, .panier__head3 {
     flex: 0 0 auto;
     width: 16.66666667%;
   }
@@ -1140,12 +1141,12 @@ progress {
     width: auto;
   }
 
-  .col-md-1 {
+  .col-md-1, .panier__titre {
     flex: 0 0 auto;
     width: 8.33333333%;
   }
 
-  .col-md-2, .panier__delete, .panier__prix, .panier__quantite, .panier__head5, .panier__head4, .panier__head3 {
+  .col-md-2, .panier__delete, .panier__prix, .panier__quantite, .panier__image, .panier__head5, .panier__head4, .panier__head3 {
     flex: 0 0 auto;
     width: 16.66666667%;
   }
@@ -1165,7 +1166,7 @@ progress {
     width: 41.66666667%;
   }
 
-  .col-md-6, .products__vignette, .products__image {
+  .col-md-6, .products__vignette, .products__image, .panier__vide {
     flex: 0 0 auto;
     width: 50%;
   }
@@ -1180,7 +1181,7 @@ progress {
     width: 66.66666667%;
   }
 
-  .col-md-9, .panier__recap {
+  .col-md-9 {
     flex: 0 0 auto;
     width: 75%;
   }
@@ -1190,7 +1191,7 @@ progress {
     width: 83.33333333%;
   }
 
-  .col-md-11 {
+  .col-md-11, .panier__recap {
     flex: 0 0 auto;
     width: 91.66666667%;
   }
@@ -1353,12 +1354,12 @@ progress {
     width: auto;
   }
 
-  .col-lg-1 {
+  .col-lg-1, .panier__titre {
     flex: 0 0 auto;
     width: 8.33333333%;
   }
 
-  .col-lg-2, .panier__delete, .panier__prix, .panier__quantite, .panier__head5, .panier__head4, .panier__head3 {
+  .col-lg-2, .panier__delete, .panier__prix, .panier__quantite, .panier__image, .panier__head5, .panier__head4, .panier__head3 {
     flex: 0 0 auto;
     width: 16.66666667%;
   }
@@ -1566,12 +1567,12 @@ progress {
     width: auto;
   }
 
-  .col-xl-1 {
+  .col-xl-1, .panier__titre {
     flex: 0 0 auto;
     width: 8.33333333%;
   }
 
-  .col-xl-2, .panier__delete, .panier__prix, .panier__quantite, .panier__head5, .panier__head4, .panier__head3 {
+  .col-xl-2, .panier__delete, .panier__prix, .panier__quantite, .panier__image, .panier__head5, .panier__head4, .panier__head3 {
     flex: 0 0 auto;
     width: 16.66666667%;
   }
@@ -11128,8 +11129,21 @@ p {
   color: black;
 }
 
-/*** Règles Média Queries résolutions  () ***/
-/*** Fin des règles Média Queries résolutions  ***/
+#panier__vide {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.panier__vide {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 15px;
+}
+
 .panier__recap {
   display: flex;
   flex-wrap: wrap;
@@ -11141,6 +11155,14 @@ p {
 tr {
   display: flex;
   align-items: center;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+#head {
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 
 .panier__head2 {
@@ -11159,10 +11181,9 @@ tr {
   text-align: center;
 }
 
-.panier__image {
+.panier__img {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  width: 80%;
-  border-bottom-left-radius: 15px;
+  width: 55%;
 }
 
 .panier__lenses {
@@ -11254,13 +11275,16 @@ tr {
 }
 
 .commander {
-  margin-bottom: 60px;
   border-style: none;
   border-radius: 25px;
   width: 30%;
   color: #ffffff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background: linear-gradient(90deg, #b38266 0%, #b98d70 0%, #d5ba98 100%, #e0cda9 100%);
+}
+
+.footer {
+  margin-top: 60px;
 }
 
 .products__bloc {
@@ -11274,6 +11298,10 @@ tr {
 
 .products {
   flex-wrap: wrap;
+}
+
+#h1__color {
+  color: #b38266;
 }
 
 .products__image {
@@ -11381,12 +11409,12 @@ tr {
 .header__titre {
   text-decoration: none;
   font-size: 40px;
-  font-family: "Belligerent Madness", arial;
+  font-family: "Gloria Hallelujah", arial;
   color: #ffffff;
 }
 .header__titre:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #d5ba98;
 }
 
 .header__nav {
@@ -11405,7 +11433,7 @@ tr {
 }
 .panier:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #b38266;
 }
 
 .panier__notif {
@@ -11458,8 +11486,8 @@ tr {
 
 .h1 {
   text-decoration: none;
-  font-size: 40px;
-  font-family: "Belligerent Madness", arial;
+  font-size: 50px;
+  font-family: "Gloria Hallelujah", arial;
   color: #353535;
 }
 
@@ -11468,7 +11496,7 @@ tr {
 }
 
 .h1__desc {
-  font-family: "Belligerent Madness", arial;
+  font-family: "Gloria Hallelujah", arial;
   text-align: center;
 }
 

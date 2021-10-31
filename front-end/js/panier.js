@@ -1,41 +1,43 @@
 const addLocalStorage = JSON.parse(localStorage.getItem("products"));
- 
+const templateElt = document.getElementById("temppanier");
+const panierElt = document.getElementById("panier__vide");
 
+(async function arrPanier(){
+	displayPanier()
 
-	const templateElt = document.getElementById("temppanier");
-	const cloneElt = document.importNode(templateElt.content, true);
-	const panierElt = document.getElementById("panier__vide");
+})();
 
-if (addLocalStorage === null) {
-	const panierVide = '<div class="panier__vide"> Votre Panier semble vide... </div>';
-	panier__vide.innerHTML = panierVide;
-	console.log("je suis vide")
-}
+function displayPanier(){
 
-else {
-	
-	let productsPanier = []
+	let titrePanier = document.querySelector(".panier__h2");
+	let tableauPanier = document.querySelector(".panier__recap");
+	let totalPanier = document.querySelector(".total__article");
+	let formulairePanier = document.querySelector(".panier__row2");
 
-	for(i =0; i < addLocalStorage.length; i++);
-	console.log(addLocalStorage.length)
+	if (addLocalStorage === null) {
+		document.getElementById("panier__num").textContent = "0"
+		const panierVide = '<div class="panier__vide"> Oups... Votre panier est vide ! </div>';
+		panier__vide.innerHTML = panierVide;
+		titrePanier.style.display = "none";
+		tableauPanier.style.display = "none";
+		totalPanier.style.display = "none";
+		formulairePanier.style.display = "none";
+	}
 
-	cloneElt.querySelector(".panier__image").src = addLocalStorage.imageUrl;
-	cloneElt.querySelector(".panier__lenses").textContent = addLocalStorage.choixLenses;
-	cloneElt.querySelector(".panier__head1").textContent = addLocalStorage.name;
-	cloneElt.querySelector(".panier__prix").textContent  = addLocalStorage.price;
-	cloneElt.querySelector(".panier__quantite").textContent =  addLocalStorage.quantité;
+	else {
 
-	document.getElementById("panierforms").appendChild(cloneElt);
+		let productsPanier = []
 
-	
-		
+		for(let i =0; i < addLocalStorage.length; i++) {
+			const cloneElt = document.importNode(templateElt.content, true);
+			cloneElt.querySelector(".panier__img").src = addLocalStorage[i].image;
+			cloneElt.querySelector(".panier__lenses").textContent = addLocalStorage[i].lentilles;
+			cloneElt.querySelector(".panier__titre").textContent = addLocalStorage[i].nom;
+			cloneElt.querySelector(".panier__prix").textContent  = addLocalStorage[i].prix;
+			cloneElt.querySelector(".panier__quantite").textContent = addLocalStorage[i].quantité;
 
-
-console.log("je suis plein")
-
-}
-
-
-
-
-
+			document.getElementById("panier__body").appendChild(cloneElt);
+			document.getElementById("panier__num").textContent = addLocalStorage.length;
+		}
+	}
+};

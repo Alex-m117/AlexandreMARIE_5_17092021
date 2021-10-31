@@ -1,17 +1,16 @@
-  
 .bloc__page{
-  	display: flex;
-  	max-width: 100%;
-  	flex-direction: column;
+	display: flex;
+	max-width: 100%;
+	flex-direction: column;
 }
 
 .header{
-		@extend .sticky-top;
+	@extend .sticky-top;
 }
 
 .header__bloc{
-		@extend .row;
-		@extend .container-fluid;
+	@extend .row;
+	@extend .container-fluid;
 	margin:0;
 	background: rgb(179,130,102);
 	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
@@ -27,11 +26,11 @@
 .header__titre{
 	text-decoration: none;
 	font-size: 40px;
-	font-family: 'Belligerent Madness', arial;
+	font-family: 'Gloria Hallelujah', arial;
 	color: #ffffff;
-		&:hover{
-			text-decoration: none;
-			color: #ffffff;
+	&:hover{
+		text-decoration: none;
+		color: #d5ba98;
 	}
 }
 
@@ -48,9 +47,9 @@
 	font-size: 30px;
 	align-items: center;
 	color: #ffffff;
-		&:hover{
-			text-decoration: none;
-			color: #ffffff;
+	&:hover{
+		text-decoration: none;
+		color: #b38266;
 	}
 }
 
@@ -75,7 +74,7 @@
 }
 
 .footer{
-		@extend .container-fluid;
+	@extend .container-fluid;
 	bottom:0;
 	height: 50px;
 	display: flex;
@@ -89,7 +88,7 @@
 	font-size:30px;
 	padding:10px;
 	color: #ffffff;
-		&:hover {
-			color: #b38266;
+	&:hover {
+		color: #b38266;
 	}
 }

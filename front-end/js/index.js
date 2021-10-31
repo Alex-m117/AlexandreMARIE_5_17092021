@@ -4,21 +4,22 @@ const url = "http://localhost:3000/api/cameras";
 	const camera = await getItems()
 
 	for (items of camera) {
-		displayItems(items) 
-	}
+		displayItems(items); 	
+	}	
+	articlesNum();	
 })();
 
 function getItems(){
 	return fetch (url)
-		.then(function(response){
-			return response.json()
-		})
-		.then(function(camera){
-			return camera
-		})
-		.catch(function(err){
-			alert (err)
-		})
+	.then(function(response){
+		return response.json()
+	})
+	.then(function(camera){
+		return camera
+	})
+	.catch(function(err){
+		alert (err)
+	})
 };
 
 function displayItems(items){
@@ -31,11 +32,4 @@ function displayItems(items){
 	cloneElt.querySelector(".price").textContent = items.price/100+ '€';
 
 	document.getElementById("picforms").appendChild(cloneElt);
-
 };
-
-
-
-
-
-

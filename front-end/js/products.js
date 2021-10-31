@@ -1,4 +1,3 @@
-
 const ProductID = window.location.search;
 const urlParams = new URLSearchParams(ProductID);
 const id = urlParams.get("id");
@@ -10,21 +9,22 @@ const urlProducts = "http://localhost:3000/api/cameras/"+id;
 	const item = await getProduct()
 	displayProduct(item)
 	addPanier(item)
+	articlesNum();
 })()
 
 
 function getProduct(){
 	return fetch (urlProducts)
-		.then(function(response){
-			return response.json()	
-		})
-		.then(function(camID){
-			return camID 
-		})
+	.then(function(response){
+		return response.json()	
+	})
+	.then(function(camID){
+		return camID 
+	})
 
-		.catch(function(err){
-			alert (err)
-		})
+	.catch(function(err){
+		alert (err)
+	})
 };
 
 
@@ -37,12 +37,12 @@ function displayProduct(item){
 	document.querySelector(".products__price").textContent = item.price/100+ '€';
 
 	let lenseOption = "";
-		for (let i = 0; i < item.lenses.length; i++) {
+	for (let i = 0; i < item.lenses.length; i++) {
 		lenseOption += "<option value='"+item.lenses[i]+"'>"+item.lenses[i]+"</option>";
 		
 	};
 	
-		document.querySelector("#choix_lenses").innerHTML=lenseOption;
+	document.querySelector("#choix_lenses").innerHTML=lenseOption;
 
 };
 
@@ -51,43 +51,48 @@ function addPanier(item) {
 	const btnPanier = document.querySelector(".products__panier");
 	
 	btnPanier.addEventListener("click", function(event) {
-	event.preventDefault();
-	
-	const clickLenses = document.querySelector("#choix_lenses");
-	const choixLenses = clickLenses.value;
+		event.preventDefault();
 
-	let camProduct = {
+		const clickLenses = document.querySelector("#choix_lenses");
+		const choixLenses = clickLenses.value;
 
-	nom: item.name,
-	image: item.imageUrl,
-	id: item._id,
-	lentilles: choixLenses,
-	prix: item.price / 100 + "€",
-	quantité: 1,
-}	
-	console.log(camProduct)
+		let camProduct = {
 
-	let addLocalStorage = JSON.parse(localStorage.getItem("products"));
+			nom: item.name,
+			image: item.imageUrl,
+			id: item._id,
+			lentilles: choixLenses,
+			prix: item.price / 100 + "€",
+			quantité: 1,
+		}	
+		console.log(camProduct)
 
-	function addStorage () {
-		addLocalStorage.push(camProduct);
-		localStorage.setItem("products", JSON.stringify(addLocalStorage));
-	};
+		let addLocalStorage = JSON.parse(localStorage.getItem("products"));
 
-	if(addLocalStorage) {
-		addStorage();
-	}
+		function addStorage () {
+			addLocalStorage = addLocalStorage.filter(product => ((product.id !== camProduct.id) || ((product.id == camProduct.id) && (product.lentilles !== camProduct.lentilles))));
+			addLocalStorage.push(camProduct);
+			localStorage.setItem("products", JSON.stringify(addLocalStorage));
+		};
 
-	else {
-		addLocalStorage = [];
-		addStorage();
+		if(addLocalStorage) {
+			addStorage();
+
 		}
-}
-)};
+
+		else {
+
+			addLocalStorage = [];
+			addStorage();
+		};
 
 
+		if (confirm("Votre produit a bien été ajouté au panier, aller directement au panier ?")) {
+			window.location.href = "./panier.html"
+		}
 
-
-
-
-
+		else {
+			window.location.href = "../../index.html"
+		};
+	}	
+	)};
