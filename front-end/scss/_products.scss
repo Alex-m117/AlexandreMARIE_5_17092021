@@ -32,6 +32,7 @@
 .products__note{
 	@extend .mt-2;
 	justify-content: center;
+	margin-bottom: 5px;
 }
 
 .products__vignette{
@@ -51,16 +52,52 @@
 	justify-content: space-evenly;
 }
 
+.form{
+	display: flex;
+	width: 80%;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
 .products__desc{	
 	width: 85%;
 	text-align: center;
 }
 
+label{
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
 .products__choix{
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+#choix__lenses{
+	padding: 2px;
+	color:#ffffff;
+	border-style: none;
+	border-radius: 25px;
+	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
+}
+
+.product__select{
 	text-align: center;
 }
 
+#choix__num{
+	margin-bottom: 5px;
+	padding: 2px;
+	color:#ffffff;
+	border-style: none;
+	border-radius: 25px;
+	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
+}
+
 .products__panier{
+	margin-bottom: 10px;
 	padding: 10px;
 	color:#ffffff;
 	border-style: none;

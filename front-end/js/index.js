@@ -29,7 +29,7 @@ function displayItems(items){
 	cloneElt.querySelector(".cameras__lien").href = "./front-end/pages/products.html?id="+items._id;
 	cloneElt.querySelector(".cameras__image").src = items.imageUrl;
 	cloneElt.querySelector(".h3").textContent = items.name;
-	cloneElt.querySelector(".price").textContent = items.price/100+ '€';
+	cloneElt.querySelector(".price").textContent = items.price/100+ ',00 €';
 
 	document.getElementById("picforms").appendChild(cloneElt);
 };

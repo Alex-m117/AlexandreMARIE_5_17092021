@@ -91,43 +91,41 @@
 								<td class="panier__image"> <img class="panier__img" src=""> </td>
 								<td class="panier__titre"> </td>
 								<td class="panier__lenses"> </td>
-								<td class="panier__quantite"> <input class="quantite" id="quantite" type="number" name="Quantité" min="1" max="10"> </td>
+								<td class="panier__quantite"> <input class="quantite" disabled="disabled" > </td>
 								<td class="panier__prix"> </td>
-								<td class="panier__delete"> <button class="button__del" id="delete"> <i class="far fa-trash-alt"></i> </button> </td>
+								<td class="panier__delete"> <button class="button__del"> <i class="far fa-trash-alt"></i> </button> </td>
 							</tr>
 						</template>
 					</tbody>
 				</table>
 
-				
+ 				<button id="button__deleleteall"> </button> 
 
 			</div>
 		</div>	
 		
 		<div class="panier__row2">
 
-			<div class="total__article"> Total Articles <p id="total"> ****€ </p> </div>
+			<div class="total__article"> Total Articles <p id="total">  </p> </div>
 
 			<form class="formulaire">
 
 				<h2 class="panier__h2"> Validation </h2>
 				
-				<div class="formulaire__info"> <input id="nom" type="text" name="Nom" placeholder="Dupont"> </div>
+				<div class="formulaire__info"> <input id="nom" type="text" required pattern="[A-Z\a-z]{2,30}" name="Nom" placeholder="Dupont"> </div>
 
-				<div class="formulaire__info"> <input id="prenom" type="text" name="Prenom" placeholder="Henri"> </div>
+				<div class="formulaire__info"> <input id="prenom" type="text" required  pattern="[A-Z\a-z]{2,30}" name="Prenom" placeholder="Henri"> </div>
 
-				<div class="formulaire__info"> <input id="mail" type="email" name="E-mail" placeholder="henridupont@monemail.com"> </div>
+				<div class="formulaire__info"> <input id="mail" type="email" required pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" name="E-mail" placeholder="henridupont@monemail.com"> </div>
 
-				<div class="formulaire__info"> <input id="adresse" type="text" name="Adresse" placeholder="9 rue des lilas"> </div>
+				<div class="formulaire__info"> <input id="adresse" type="text" required name="Adresse" placeholder="9 rue des lilas"> </div>
 
-				<div class="formulaire__info"> <input id="postal" type="text" name="Code Postal" placeholder="56000"> </div>
-
-				<div class="formulaire__info"> <input id="ville" type="text" name="Ville" placeholder="Vannes"> </div>
+				<div class="formulaire__info"> <input id="ville" type="text" required name="Ville" placeholder="Vannes"> </div>
 
 			</form>
 
 
-			<a class="lien__confirm" href="./confirmation.html" ><button class="commander" type="submit" > Valider </button> </a>
+			<a class="lien__confirm" href="./confirmation.html" ><button id="commander" type="submit" > Valider </button> </a>
 		</div>
 
 	</div>
