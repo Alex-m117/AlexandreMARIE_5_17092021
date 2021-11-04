@@ -75,7 +75,6 @@ function addPanier(item) {
 			lentilles: choixLenses,
 			quantité: choixQuantite,
 			prix: (item.price/100 * choixQuantite),
-			
 		};
 
 		let addLocalStorage = JSON.parse(localStorage.getItem("products"));

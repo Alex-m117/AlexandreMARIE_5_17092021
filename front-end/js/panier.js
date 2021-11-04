@@ -6,6 +6,7 @@ const panierElt = document.getElementById("panier__vide");
 	displayPanier();
 })();
 
+// Fonction d'affichage et de gestion du panier.
 function displayPanier(){
 
 	let titrePanier = document.querySelector(".panier__h2");
@@ -65,6 +66,7 @@ function displayPanier(){
 				let prixProductPanier = addLocalStorage[j].prix;
 				prixTotal.push(prixProductPanier);
 			}
+
 		//Mise en place de "reducer" (source MDN) pour l'addition des sommes du tableau prixTotal.
 		const reducer = (accumulator, currentValue) => accumulator + currentValue;
 		const price = prixTotal.reduce(reducer,0);
@@ -107,11 +109,13 @@ const validNom = function(inputNom) {
 		small.innerHTML = "Nom Valide";
 		small.classList.remove("text-danger");
 		small.classList.add("text-success");
+		return true;
 	}
 	else {
 		small.innerHTML = "Erreur de Saisie";
 		small.classList.remove("text-success");
 		small.classList.add("text-danger");
+		return false;
 	}
 };
 
@@ -125,12 +129,14 @@ const validPrenom = function(inputPrenom) {
 	if (regexNomPrenom.test(inputPrenom.value)) {
 		small.innerHTML = "Prénom Valide";
 		small.classList.remove("text-danger");
-		small.classList.add("text-success");	
+		small.classList.add("text-success");
+		return true;	
 	}
 	else {
 		small.innerHTML = "Erreur de Saisie";
 		small.classList.remove("text-success");
 		small.classList.add("text-danger");
+		return false;
 	}
 };
 
@@ -145,11 +151,13 @@ const validMail = function(inputMail) {
 		small.innerHTML = "E-mail Valide";
 		small.classList.remove("text-danger");
 		small.classList.add("text-success");
+		return true;
 	}
 	else {
 		small.innerHTML = "Erreur de Saisie";
 		small.classList.remove("text-success");
 		small.classList.add("text-danger");
+		return false;
 	}
 };
 
@@ -163,12 +171,14 @@ const validAdresse = function(inputAdresse) {
 	if (regexAdresse.test(inputAdresse.value)) {
 		small.innerHTML = "Adresse Valide";
 		small.classList.remove("text-danger");
-		small.classList.add("text-success");	
+		small.classList.add("text-success");
+		return true;	
 	}
 	else {
 		small.innerHTML = "Erreur de Saisie";
 		small.classList.remove("text-success");
 		small.classList.add("text-danger");
+		return false;
 	}
 };
 
@@ -192,30 +202,33 @@ const validVille = function(inputVille) {
 };
 
 // Ecoute de l'envoi du formulaire 
-document.getElementById("commander").addEventListener('click',(event) => {
-	event.preventDefault();
+document.getElementById("commander").addEventListener('click', function (e) {
+	e.preventDefault();
 
 	if (validNom(formulaire.nom) 
-		&& validPrenom(formulaire.prenom) 
-		&& validMail(formulaire.mail) 
+		&& validPrenom(formulaire.prenom)
+		&& validMail(formulaire.mail)
 		&& validAdresse(formulaire.adresse) 
-		&& validVille(formulaire.ville)) {
-
+		&& validVille(formulaire.ville))
+	{
+		
 		// Création fiche contact
-	let contact = {
+		let contact = {
 
-		firstname: formulaire.nom.value,
-		lastname: formulaire.prenom.value,
-		adress: formulaire.adresse.value,
-		city: formulaire.ville.value,
-		email: formulaire.mail.value,
-	}
+			firstname: formulaire.nom.value,
+			lastname: formulaire.prenom.value,
+			adress: formulaire.adresse.value,
+			city: formulaire.ville.value,
+			email: formulaire.mail.value,
+		}
 
 		//Récupération des ID produits pour les envoyer au back-end via la requête POST.
-		let productsID = [];
+		let articleId = [];
 
-		for(let i =0; i < addLocalStorage.length; i++) {
-			productsID.push(addLocalStorage[i].id)
+			for(let k =0; k < addLocalStorage.length; k++) {
+				let idArticlePanier = addLocalStorage[k].id;
+				articleId.push(idArticlePanier)
+				console.log(aidArticlePanier)
 		};
 
 		// Création requête "POST"
@@ -225,20 +238,22 @@ document.getElementById("commander").addEventListener('click',(event) => {
 				'Accept': 'application/json', 
 				'Content-Type': 'application/json' 
 			},
-			body: JSON.stringify({contact, productID})
+			body: JSON.stringify({contact, articleId})
 		};
 
-		fetch("http://localhost:3000/api/cameras/order", post)
-		.then(response => response.json())
-		.then(response => { 
-			let commande = JSON.stringify(response)
-			localStorage.setItem("order", commande)
-			console.log(response)
+		//fetch pour envoi des données au back-end et génération confirmation de commande.
+		fetch ("http://localhost:3000/api/cameras/order", post)
+			.then(response => response.json())
+			.then(response => { 
+				localStorage.setItem("order", JSON.stringify(response))
+				console.log(response)
 		})
-		.catch(err => {
-			alert('Envoi des données impossible, merci de vérifier vos informations.')
+			.catch(err => {
+				alert('Envoi des données impossible, merci de vérifier vos informations.')
 		})
 	};
+	formulaire.click();
+	console.log(event)
 });
 
 
