@@ -4,6 +4,7 @@ const panierElt = document.getElementById("panier__vide");
 
 (async function arrPanier(){
 	displayPanier();
+	displayFormulaire();
 })();
 
 // Fonction d'affichage et de gestion du panier.
@@ -15,7 +16,7 @@ function displayPanier(){
 	let totalPanier = document.querySelector(".total__article");
 	let formulairePanier = document.querySelector(".panier__row2");
 
-	if (addLocalStorage === null)  {
+	if (addLocalStorage === null || addLocalStorage.length == 0)  {
 		document.getElementById("panier__num").textContent = "0"
 		const panierVide = '<div class="panier__vide"> Oups... Votre panier est vide ! </div>';
 		panier__vide.innerHTML = panierVide;
@@ -36,7 +37,7 @@ function displayPanier(){
 			cloneElt.querySelector(".panier__lenses").textContent = addLocalStorage[i].lentilles;
 			cloneElt.querySelector(".panier__titre").textContent = addLocalStorage[i].nom;
 			cloneElt.querySelector(".quantite").value = addLocalStorage[i].quantité;
-			cloneElt.querySelector(".panier__prix").textContent = addLocalStorage[i].prix + ',00 €';
+			cloneElt.querySelector(".panier__prix").textContent = (addLocalStorage[i].prix * parseInt(addLocalStorage[i].quantité)) + ',00 €';
 
 			document.getElementById("panier__body").appendChild(cloneElt);
 			document.getElementById("panier__num").textContent = addLocalStorage.length;
@@ -45,11 +46,12 @@ function displayPanier(){
 			btn_del[i].addEventListener('click', () => {
 				addLocalStorage.splice(i,1);
 				localStorage.clear();
-				localStorage.setItem('products', JSON.stringify(addLocalStorage));	
-				window.location.reload();
-				if (products === 0) {
+				localStorage.setItem('products', JSON.stringify(addLocalStorage));
+				let products = JSON.parse(localStorage.getItem("products"));
+				if (products == null || products.length == 0) {
 					localStorage.clear();	
 				};	
+				window.location.reload();
 			}
 			)};	
 
@@ -60,11 +62,14 @@ function displayPanier(){
 				location.reload();
 			});
 			
+
+
 			let prixTotal = [];
 
 			for(let j = 0; j < addLocalStorage.length; j++){
-				let prixProductPanier = addLocalStorage[j].prix;
+				let prixProductPanier = addLocalStorage[j].prix * parseInt(addLocalStorage[j].quantité);
 				prixTotal.push(prixProductPanier);
+				console.log(prixTotal);
 			}
 
 		//Mise en place de "reducer" (source MDN) pour l'addition des sommes du tableau prixTotal.
@@ -72,8 +77,30 @@ function displayPanier(){
 		const price = prixTotal.reduce(reducer,0);
 		document.querySelector("#total").textContent = price + ',00 €';
 	};
+
+		let inputSelect = document.querySelectorAll(".quantite");
+		console.log(inputSelect)
+		for (let i = 0 ; i < inputSelect.length; i++) {
+			inputSelect[i].addEventListener('change', function() {
+				let newQuantity = inputSelect[i].value;
+				if (newQuantity > 0 ){
+					let product = JSON.parse(localStorage.getItem("products"))[i];
+					addLocalStorage.splice(i,1);
+					product.quantité = newQuantity;
+
+					addLocalStorage.push(product);
+					localStorage.setItem('products', JSON.stringify(addLocalStorage));
+					window.location.reload();
+				}
+				else {
+					alert("Attention, la quantité dois être supérieur à 0");
+				}
+			});
+		};
 };
 
+
+function displayFormulaire(){
 // Formulaire
 let formulaire = document.querySelector(".formulaire");
 
@@ -192,18 +219,20 @@ const validVille = function(inputVille) {
 	if (regexVille.test(inputVille.value)) {
 		small.innerHTML = "Ville Valide";
 		small.classList.remove("text-danger");
-		small.classList.add("text-success");	
+		small.classList.add("text-success");
+		return true;	
 	}
 	else {
 		small.innerHTML = "Erreur de Saisie";
 		small.classList.remove("text-success");
 		small.classList.add("text-danger");
+		return false
 	}
 };
 
 // Ecoute de l'envoi du formulaire 
 document.getElementById("commander").addEventListener('click', function (e) {
-	e.preventDefault();
+e.preventDefault();
 
 	if (validNom(formulaire.nom) 
 		&& validPrenom(formulaire.prenom)
@@ -211,24 +240,24 @@ document.getElementById("commander").addEventListener('click', function (e) {
 		&& validAdresse(formulaire.adresse) 
 		&& validVille(formulaire.ville))
 	{
-		
+
 		// Création fiche contact
 		let contact = {
 
-			firstname: formulaire.nom.value,
-			lastname: formulaire.prenom.value,
+			firstName: formulaire.nom.value,
+			lastName: formulaire.prenom.value,
 			adress: formulaire.adresse.value,
 			city: formulaire.ville.value,
 			email: formulaire.mail.value,
 		}
 
 		//Récupération des ID produits pour les envoyer au back-end via la requête POST.
-		let articleId = [];
+		let products = [];
 
-			for(let k =0; k < addLocalStorage.length; k++) {
+			for(let k = 0; k < addLocalStorage.length; k++) {
 				let idArticlePanier = addLocalStorage[k].id;
-				articleId.push(idArticlePanier)
-				console.log(aidArticlePanier)
+				products.push(idArticlePanier)
+				console.log(idArticlePanier)
 		};
 
 		// Création requête "POST"
@@ -238,15 +267,18 @@ document.getElementById("commander").addEventListener('click', function (e) {
 				'Accept': 'application/json', 
 				'Content-Type': 'application/json' 
 			},
-			body: JSON.stringify({contact, articleId})
+			body: JSON.stringify({contact, products})
 		};
 
 		//fetch pour envoi des données au back-end et génération confirmation de commande.
 		fetch ("http://localhost:3000/api/cameras/order", post)
 			.then(response => response.json())
 			.then(response => { 
-				localStorage.setItem("order", JSON.stringify(response))
-				console.log(response)
+				let commande = JSON.stringify(response);
+				console.log(response);
+				localStorage.setItem("order", commande);
+			href = "./front-end/pages/confirmation.html?order=commande";
+
 		})
 			.catch(err => {
 				alert('Envoi des données impossible, merci de vérifier vos informations.')
@@ -255,6 +287,6 @@ document.getElementById("commander").addEventListener('click', function (e) {
 	formulaire.click();
 	console.log(event)
 });
-
+};
 
 
