@@ -5,6 +5,7 @@ const panierElt = document.getElementById("panier__vide");
 (async function arrPanier(){
 	displayPanier();
 	displayFormulaire();
+	articlesNum();
 })();
 
 // Fonction d'affichage et de gestion du panier.
@@ -285,7 +286,7 @@ e.preventDefault();
 		})
 	};
 	formulaire.click();
-	console.log(event)
+
 });
 };
 
