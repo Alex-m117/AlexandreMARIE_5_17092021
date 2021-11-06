@@ -265,20 +265,21 @@ e.preventDefault();
 		const post = { 	
 			method: "POST",
 			headers: { 
-				'Accept': 'application/json', 
 				'Content-Type': 'application/json' 
-			},
-			body: JSON.stringify({contact, products})
+				},
+				body: JSON.stringify({contact, products}),
 		};
 
+		const url = "http://localhost:3000/api/cameras/order";
+
 		//fetch pour envoi des données au back-end et génération confirmation de commande.
-		fetch ("http://localhost:3000/api/cameras/order", post)
+		fetch (url, post)
 			.then(response => response.json())
 			.then(response => { 
 				let commande = JSON.stringify(response);
 				console.log(response);
 				localStorage.setItem("order", commande);
-			href = "./front-end/pages/confirmation.html?order=commande";
+			location.href = "confirmation.html?order=commande";
 
 		})
 			.catch(err => {
@@ -286,7 +287,6 @@ e.preventDefault();
 		})
 	};
 	formulaire.click();
-
 });
 };
 

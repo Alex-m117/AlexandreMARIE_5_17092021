@@ -32,7 +32,7 @@ function displayProduct(item){
 	
 	document.querySelector(".products__image").src = item.imageUrl;
 	document.querySelector(".products__image").alt = item.name;
-	document.querySelector(".products__h1").textContent = item.name;
+	document.querySelector(".products__title").textContent = item.name;
 	document.querySelector(".products__desc").textContent = item.description;
 	document.querySelector(".products__price").textContent = item.price/100+ ',00 €';
 

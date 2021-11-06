@@ -14,8 +14,13 @@
 	flex-wrap: wrap;
 }
 
-.products__h1{
+.products__title{
 	@extend .mt-2;
+	margin-top: 0,5rem;
+	margin-bottom: 0,5rem;
+	font-weight: 500;
+	line-height: 1,2;
+	font-size: 40px;
 }
 
 #h1__color{
