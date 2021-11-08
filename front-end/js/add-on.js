@@ -1,3 +1,4 @@
+// Fonction de génération du nombre de quantités/articles ajouter dans le panier en temps réel.
 function articlesNum() {
 
 	let productCart = JSON.parse(localStorage.getItem("products"));
@@ -15,4 +16,5 @@ function articlesNum() {
 	}
 
 };
+// Appel de la fonction.
 articlesNum();

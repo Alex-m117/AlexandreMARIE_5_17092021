@@ -1,5 +1,7 @@
+// Déclaration de l'URL qui génére l'appel à l'API.
 const url = "http://localhost:3000/api/cameras";
 
+// Fonction "main" asynchrone qui gére les différentes fonctions de la page Index.
 (async function arrPic() {
 	const camera = await getItems()
 
@@ -9,6 +11,7 @@ const url = "http://localhost:3000/api/cameras";
 	articlesNum();	
 })();
 
+// Fonction fetch qui gérent l'appel de l'API pour l'affichage des articles si la promesse est résolue.
 function getItems(){
 	return fetch (url)
 	.then(function(response){
@@ -22,6 +25,7 @@ function getItems(){
 	})
 };
 
+// Fonction d'affichage des informations dans le DOM des articles suite à "fetch" et envoi sous forme de lien les paramètres de l'id dans l'URL.
 function displayItems(items){
 	const templateElt = document.getElementById("tempindex");
 	const cloneElt = document.importNode(templateElt.content, true);

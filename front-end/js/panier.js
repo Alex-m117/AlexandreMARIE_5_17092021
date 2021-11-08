@@ -1,7 +1,9 @@
+// Déclarations des constantes "main" & celles de gestion du template.
 const addLocalStorage = JSON.parse(localStorage.getItem("products"));
 const templateElt = document.getElementById("temppanier");
 const panierElt = document.getElementById("panier__vide");
 
+// Fonction "main" asynchrone pour la gestion et l'affichage des différentes fonctions du panier.
 (async function arrPanier(){
 	displayPanier();
 	displayFormulaire();
@@ -11,15 +13,17 @@ const panierElt = document.getElementById("panier__vide");
 // Fonction d'affichage et de gestion du panier.
 function displayPanier(){
 
+	// Création des éléments du DOM à faire apparaitre/disparaitre en fonction du localStorage.
 	let titrePanier = document.querySelector(".panier__h2");
 	let tableauPanier = document.querySelector(".panier__recap");
 	let cleanPanier = document.getElementById("button__deleleteall");
 	let totalPanier = document.querySelector(".total__article");
 	let formulairePanier = document.querySelector(".panier__row2");
 
+	// si le LocalStorage est vide ou null il affiche un message d'avertissement et un retour à l'accueil, le DOM est effacé sur les déclarations précédentes.
 	if (addLocalStorage === null || addLocalStorage.length == 0)  {
 		document.getElementById("panier__num").textContent = "0"
-		const panierVide = '<div class="panier__vide"> Oups... Votre panier est vide ! </div>';
+		const panierVide = '<div class="panier__vide"> Oups... Votre panier est vide ! <a class="panier__retour" href="../../index.html"> Accueil </a> </div>';
 		panier__vide.innerHTML = panierVide;
 		titrePanier.style.display = "none";
 		tableauPanier.style.display = "none";
@@ -28,8 +32,9 @@ function displayPanier(){
 		formulairePanier.style.display = "none";
 	}
 
+	// Création des éléments du panier via template & gestion de l'affichage des produits du localStorage.
 	else {
-
+		
 		let productsPanier = []
 
 		for(let i =0; i < addLocalStorage.length; i++) {
@@ -43,12 +48,14 @@ function displayPanier(){
 			document.getElementById("panier__body").appendChild(cloneElt);
 			document.getElementById("panier__num").textContent = addLocalStorage.length;
 
+			// Effacer un seul produit du panier.
 			let btn_del = document.querySelectorAll(".button__del");
 			btn_del[i].addEventListener('click', () => {
 				addLocalStorage.splice(i,1);
 				localStorage.clear();
 				localStorage.setItem('products', JSON.stringify(addLocalStorage));
 				let products = JSON.parse(localStorage.getItem("products"));
+
 				if (products == null || products.length == 0) {
 					localStorage.clear();	
 				};	
@@ -56,6 +63,7 @@ function displayPanier(){
 			}
 			)};	
 
+			// Vider entierement les produits du panier.
 			document.getElementById("button__deleleteall").textContent = "Vider le panier";
 			let btn_delall = document.getElementById("button__deleleteall");
 			btn_delall.addEventListener('click', () => {
@@ -63,45 +71,46 @@ function displayPanier(){
 				location.reload();
 			});
 			
-
-
+			// Calcul du prix total des articles
 			let prixTotal = [];
 
 			for(let j = 0; j < addLocalStorage.length; j++){
 				let prixProductPanier = addLocalStorage[j].prix * parseInt(addLocalStorage[j].quantité);
 				prixTotal.push(prixProductPanier);
-				console.log(prixTotal);
 			}
 
 		//Mise en place de "reducer" (source MDN) pour l'addition des sommes du tableau prixTotal.
 		const reducer = (accumulator, currentValue) => accumulator + currentValue;
 		const price = prixTotal.reduce(reducer,0);
 		document.querySelector("#total").textContent = price + ',00 €';
+		localStorage.setItem("total", JSON.stringify(price));
 	};
 
-		let inputSelect = document.querySelectorAll(".quantite");
-		console.log(inputSelect)
-		for (let i = 0 ; i < inputSelect.length; i++) {
-			inputSelect[i].addEventListener('change', function() {
-				let newQuantity = inputSelect[i].value;
-				if (newQuantity > 0 ){
-					let product = JSON.parse(localStorage.getItem("products"))[i];
-					addLocalStorage.splice(i,1);
-					product.quantité = newQuantity;
+	// Gestion de la quantité des articles dans le panier et modification du prix total si modification de la quantité.
+	let inputSelect = document.querySelectorAll(".quantite");
 
-					addLocalStorage.push(product);
-					localStorage.setItem('products', JSON.stringify(addLocalStorage));
-					window.location.reload();
-				}
-				else {
-					alert("Attention, la quantité dois être supérieur à 0");
-				}
-			});
-		};
+	for (let i = 0 ; i < inputSelect.length; i++) {
+		inputSelect[i].addEventListener('change', function() {
+			let newQuantity = inputSelect[i].value;
+
+			if (newQuantity > 0 ){
+				let product = JSON.parse(localStorage.getItem("products"))[i];
+				addLocalStorage.splice(i,1);
+				product.quantité = newQuantity;
+				addLocalStorage.push(product);
+				localStorage.setItem('products', JSON.stringify(addLocalStorage));
+				window.location.reload();
+			}
+			else {
+				alert("Attention, la quantité dois être supérieur à 0");
+			}
+		});
+	};
 };
 
-
+// Fonction de gestion du formulaire.
 function displayFormulaire(){
+
 // Formulaire
 let formulaire = document.querySelector(".formulaire");
 
@@ -233,8 +242,9 @@ const validVille = function(inputVille) {
 
 // Ecoute de l'envoi du formulaire 
 document.getElementById("commander").addEventListener('click', function (e) {
-e.preventDefault();
-
+	e.preventDefault();
+	
+	// Contrôle 
 	if (validNom(formulaire.nom) 
 		&& validPrenom(formulaire.prenom)
 		&& validMail(formulaire.mail)
@@ -242,12 +252,12 @@ e.preventDefault();
 		&& validVille(formulaire.ville))
 	{
 
-		// Création fiche contact
+		// Création fiche contact pour génération de la commande.
 		let contact = {
 
 			firstName: formulaire.nom.value,
 			lastName: formulaire.prenom.value,
-			adress: formulaire.adresse.value,
+			address: formulaire.adresse.value,
 			city: formulaire.ville.value,
 			email: formulaire.mail.value,
 		}
@@ -255,37 +265,34 @@ e.preventDefault();
 		//Récupération des ID produits pour les envoyer au back-end via la requête POST.
 		let products = [];
 
-			for(let k = 0; k < addLocalStorage.length; k++) {
-				let idArticlePanier = addLocalStorage[k].id;
-				products.push(idArticlePanier)
-				console.log(idArticlePanier)
+		for(let k = 0; k < addLocalStorage.length; k++) {
+			let idArticlePanier = addLocalStorage[k].id;
+			products.push(idArticlePanier)
+			console.log(idArticlePanier)
 		};
 
-		// Création requête "POST"
-		const post = { 	
+		//fetch pour envoi des données au back-end et génération de la confirmation de commande.
+		fetch ("http://localhost:3000/api/cameras/order",
+		{
 			method: "POST",
 			headers: { 
+				'Accept': 'application/json',
 				'Content-Type': 'application/json' 
-				},
-				body: JSON.stringify({contact, products}),
-		};
-
-		const url = "http://localhost:3000/api/cameras/order";
-
-		//fetch pour envoi des données au back-end et génération confirmation de commande.
-		fetch (url, post)
-			.then(response => response.json())
-			.then(response => { 
-				let commande = JSON.stringify(response);
-				console.log(response);
-				localStorage.setItem("order", commande);
-			location.href = "confirmation.html?order=commande";
-
+			},
+			body: JSON.stringify({contact, products}),
 		})
-			.catch(err => {
-				alert('Envoi des données impossible, merci de vérifier vos informations.')
+		.then(response => response.json())
+		.then(response => { 
+			let commande = JSON.stringify(response);
+			console.log(response);
+			localStorage.setItem("order", commande);
+			window.location.href = "confirmation.html";
+		})
+		.catch(err => {
+			alert('Envoi des données impossible, merci de vérifier vos informations.')
 		})
 	};
+	// Soumission du formulaire au clic de l'événement.
 	formulaire.click();
 });
 };

@@ -11137,11 +11137,30 @@ p {
 
 .panier__vide {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   text-align: center;
   padding: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 15px;
+}
+
+.panier__retour {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+  border-style: none;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 25px;
+  width: 35%;
+  color: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background: linear-gradient(90deg, #b38266 0%, #b98d70 0%, #d5ba98 100%, #e0cda9 100%);
+}
+.panier__retour:hover {
+  color: #ffffff;
 }
 
 .panier__recap {
@@ -11323,10 +11342,9 @@ tr {
 }
 
 .products__title {
-  margin-top: 0, 5rem;
-  margin-bottom: 0, 5rem;
+  margin-top: 8px;
+  margin-bottom: 8px;
   font-weight: 500;
-  line-height: 1, 2;
   font-size: 40px;
 }
 
