@@ -7,6 +7,7 @@
 
 	<meta charset="utf-8">
 
+	<!-- meta SEO // Viewport // Bootstrap // Font Awesome -->
 	<meta name="robots" content="index, follow">
 	<meta name="description" content=" Orinoco - Oripic | Propose un large choix d'appareils photo vintage fonctionnel pour enrichir votre quotidien de superbes photos authentique. ">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -47,8 +48,10 @@
 
 <body>
 
+	<!-- Mise en forme principale de la page -->
 	<div class="bloc__page"> 
 
+		<!-- Header de la page Panier "sticky" relatif au viewport -->
 		<header class="header">
 			<div class="header__bloc">
 
@@ -57,28 +60,32 @@
 				<nav class="header__nav"> 
 					<a class="panier" href="./panier.html"> <i class="fas fa-shopping-cart"></i> <div class="panier__notif"> <p id="panier__num">1</p> </div> </a>
 				</nav>
-
 			</div>
 		</header>
 
+		<!-- Titre de la page -->
 		<div class="oripic">
 			<h1 class="h1"> Panier </h1>
-			<p class="h1__desc"> Ori<span class="h1__color">pic</span> </p>
+			<p class="h1__desc">Ori<span class="h1__color">pic</span> </p>
 		</div>
 
+		<!-- Container principal de l'affichage dynamique des produits ajouté au Panier -->
 		<div class="panier__bloc">
 
+			<!-- Si aucun article dans le panier, afficher une notification avec un lien de retour à l'accueil -->
 			<div id="panier__vide"> </div>
 
 			<div class="panier__row1">
 				
+				<!-- Articles affiché dynamiquement par Javascript au sein du panier avec mofifications et suppressions possibles -->
 				<h2 class="panier__h2"> Vos Articles </h2>
 
+				<!-- Tableau des produits avec en-têtes & details -->
 				<table class="panier__recap">
 
 					<thead class="panier__head">
 						<tr id="head">
-							<th class="panier__head1"> Nom </th>
+							<th colspan="2" class="panier__head1"> Nom </th>
 							<th class="panier__head2"> Lentille </th>
 							<th class="panier__head3"> Quantité </th>
 							<th class="panier__head4"> Prix </th>
@@ -99,61 +106,68 @@
 						</template>
 					</tbody>
 				</table>
+				<!-- Fin du tableau produit -->
 
+				<!-- Bouton de suppression du panier -->
 				<button id="button__deleleteall"> </button> 
 
 			</div>
-		</div>	
-		
-		<div class="panier__row2">
+			
+			<div class="panier__row2">
 
-			<div class="total__article"> Total Articles <p id="total">  </p> </div>
+				<div class="total__article"> Total Articles <p id="total">  </p> </div>
 
-			<form class="formulaire">
+				<!-- Formulaire pour reccueil des données pour confirmation commande -->
+				<form class="formulaire">
 
-				<h2 class="panier__h2"> Validation </h2>
+					<h2 class="panier__h2"> Validation </h2>
 
-				<div class="formulaire__info"> <input id="nom" type="text" name="nom" placeholder="Dupont"><small></small> </div>
+					<div class="formulaire__info"> <input id="nom" type="text" name="nom" placeholder="Nom"><small></small> </div>
 
-				<div class="formulaire__info"> <input id="prenom" type="text" name="prenom" placeholder="Henri"><small></small> </div>
+					<div class="formulaire__info"> <input id="prenom" type="text" name="prenom" placeholder="Prénom"><small></small> </div>
 
-				<div class="formulaire__info"> <input id="mail" type="email" name="e-mail" placeholder="henridupont@monemail.com"><small></small> </div>
+					<div class="formulaire__info"> <input id="mail" type="email" name="e-mail" placeholder="E-mail"><small></small> </div>
 
-				<div class="formulaire__info"> <input id="adresse" type="text" name="adresse" placeholder="9 rue des lilas"><small></small> </div>
+					<div class="formulaire__info"> <input id="adresse" type="text" name="adresse" placeholder="Adresse"><small></small> </div>
 
-				<div class="formulaire__info"> <input id="ville" type="text" name="ville" placeholder="Vannes"><small></small> </div>
+					<div class="formulaire__info"> <input id="ville" type="text" name="ville" placeholder="Ville"><small></small> </div>
 
-			</form>
+				</form>
 
+				<!-- Bouton de soumission du formulaire -->
+				<button id="commander" type="submit" > Valider </button>
 
-			<button id="commander" type="submit" > Valider </button>
+			</div>
+		</div>
+		<!-- Fin du container pricipal -->
+	</div>
+
+	<!-- Footer du projet avec les liens des différents réseaux sociaux "d'Oripic" -->
+	<footer class="footer">
+
+		<div class="footer__liens">
+			<a class="social" href="#" title="Twitter"> <span class="fa fa-twitter icon-md"></span></a>
 		</div>
 
-	</div>
+		<div class="footer__liens">
+			<a class="social" href="#" title="Facebook"> <span class="fa fa-facebook icon-md"></span></a>
+		</div>
 
+		<div class="footer__liens">
+			<a class="social" href="#" title="Dribbble"> <span class="fa fa-dribbble icon-md"></span></a>
+		</div>
 
-<footer class="footer">
+		<div class="footer__liens">
+			<a class="social" href="#" title="Instagram"> <span class="fa fa-instagram icon-md"></span></a>
+		</div>
 
-	<div class="footer__liens">
-		<a class="social" href="#" title="Twitter"> <span class="fa fa-twitter icon-md"></span></a>
-	</div>
+	</footer> 
+	<!-- Fin du Footer -->
 
-	<div class="footer__liens">
-		<a class="social" href="#" title="Facebook"> <span class="fa fa-facebook icon-md"></span></a>
-	</div>
-
-	<div class="footer__liens">
-		<a class="social" href="#" title="Dribbble"> <span class="fa fa-dribbble icon-md"></span></a>
-	</div>
-
-	<div class="footer__liens">
-		<a class="social" href="#" title="Instagram"> <span class="fa fa-instagram icon-md"></span></a>
-	</div>
-
-
-</footer> 
-<script src="./../js/add-on.js"></script>
-<script src="./../js/panier.js"></script>
+	<!-- Script du widget panier et de la page Panier en Javascript -->
+	<script src="./../js/add-on.js"></script>
+	<script src="./../js/panier.js"></script>
 
 </body>
 </html>
+<!-- Fin de page -->

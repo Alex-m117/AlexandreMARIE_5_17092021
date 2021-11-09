@@ -1,3 +1,4 @@
+/* CSS de la page de confirmation */
 .confirmation{
 	@extend .container;
 	@extend .col-11;
@@ -11,25 +12,32 @@
 	height: 400px;
 	margin-top: 50px;
 	margin-bottom: 50px;
-}
+};
 
 .fa-shipping-fast{
 	font-size: 40px;
 	color: #b98e71;
-}
+};
+
 .confirmation__thanks{
 	text-align: center;
-}
+};
 
 .confirmation__commande{
 	text-align: center;
-}
+};
+
+.confirmation__prix{
+	text-align: center;
+};
 
 .confirmation__shipping{
 	text-align: center;
-}
+};
 
+/* Retour à l'accueil */
 .confirmation__retour{
+	margin-bottom: 10px;
 	border-style: none;
 	text-decoration: none;
 	text-align:center;
@@ -40,5 +48,5 @@
 	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
 	&:hover{
 		color:#ffffff;
-	}
-}
+	};
+};

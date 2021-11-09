@@ -1,12 +1,13 @@
+/* Mise en forme CSS des Headers, Footers et Containers réutilisés dans les pages du projet */
 .bloc__page{
 	display: flex;
 	max-width: 100%;
 	flex-direction: column;
-}
+};
 
 .header{
 	@extend .sticky-top;
-}
+};
 
 .header__bloc{
 	@extend .row;
@@ -15,13 +16,13 @@
 	background: rgb(179,130,102);
 	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
 	justify-content: space-between;
-}
+};
 
 .header__logo{
 	display: flex;
 	width: 20%;
 	align-items: center;
-}
+};
 
 .header__titre{
 	text-decoration: none;
@@ -31,8 +32,8 @@
 	&:hover{
 		text-decoration: none;
 		color: #d5ba98;
-	}
-}
+	};
+};
 
 .header__nav{
 	display:flex;
@@ -40,7 +41,7 @@
 	justify-content: flex-end;
 	align-items: center;
 	flex-wrap:nowrap;
-}
+};
 
 .panier{
 	z-index: 1;
@@ -50,8 +51,8 @@
 	&:hover{
 		text-decoration: none;
 		color: #b38266;
-	}
-}
+	};
+};
 
 .panier__notif{
 	z-index: 2;
@@ -63,7 +64,7 @@
 	border-radius: 25px;
 	margin-left: 25px;
 	margin-top: -40px;
-}
+};
 
 #panier__num{
 	z-index: 3;
@@ -71,7 +72,7 @@
 	color: black;
 	text-align: center;
 	margin-top: -5px;
-}
+};
 
 .footer{
 	@extend .container-fluid;
@@ -82,7 +83,7 @@
 	justify-content: center;
 	background: rgb(179,130,102);
 	background: linear-gradient(90deg, rgba(179,130,102,1) 0%, rgba(185,141,112,1) 0%, rgba(213,186,152,1) 100%, rgba(224,205,169,1) 100%);
-}
+};
 
 .social{
 	font-size:30px;
@@ -90,5 +91,5 @@
 	color: #ffffff;
 	&:hover {
 		color: #b38266;
-	}
-}
+	};
+};

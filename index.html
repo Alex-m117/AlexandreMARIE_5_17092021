@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr-fr">
 
-<!-- Projet 5 d'Openclassrooms "Orinoco" | par Alexandre MARIE -->
+<!-- Projet 5 d'Openclassrooms "Orinoco" | Page Index | par Alexandre MARIE -->
 
 <head>
 
 	<meta charset="utf-8">
 
+	<!-- meta SEO // Viewport // Bootstrap // Font Awesome -->
 	<meta name="robots" content="index, follow">
 	<meta name="description" content=" Orinoco - Oripic | Propose un large choix d'appareils photo vintage fonctionnel pour enrichir votre quotidien de superbes photos authentique. ">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -46,8 +47,10 @@
 
 <body>
 
+	<!-- Mise en forme principale de la page -->
 	<div class="bloc__page"> 
 
+		<!-- Header de la page Index "sticky" relatif au viewport -->
 		<header class="header">
 			<div class="header__bloc">
 
@@ -60,23 +63,26 @@
 			</div>
 		</header>
 
+		<!-- Titre de la page -->
 		<div class="oripic">
-			<h1 class="h1"> Ori<span class="h1__color">pic</span></h1>
+			<h1 class="h1">Ori<span class="h1__color">pic</span></h1>
 			<p class="h1__desc"> Appareils photos <span class="h1__color">vintage</span> </p>
 		</div>
 
+		<!-- Container principal de l'affichage dynamique des produits -->
 		<div class="picbloc"> 
 
+			<!-- Mise en forme des divs pour Bootstrap et le Template -->
 			<div class="picrow">
 				<div id="picforms">
 
+					<!-- Template des éléments a importer via Javascript -->
 					<template id="tempindex">
 
 						<div class="cameras">
 							<a class="cameras__lien">
 								<div class="cameras__vignette">
-
-									<img class="cameras__image" src="" alt="">
+									<img class="cameras__image" src="#" alt="#">
 									<h3 class="h3"> </h3>
 									<div class="cameras__desc">
 										<div class="cameras__note"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </div>
@@ -92,8 +98,9 @@
 			</div>
 
 		</div>
+		<!-- Fin du container principal -->
 
-
+		<!-- Footer du projet avec les liens des différents réseaux sociaux "d'Oripic" -->
 		<footer class="footer">
 
 			<div class="footer__liens">
@@ -113,10 +120,13 @@
 			</div>
 
 		</footer>
+		<!-- Fin du Footer -->
 	</div>
 
+	<!-- Script du widget panier et de la page Index en Javascript -->
 	<script src="front-end/js/add-on.js"></script>
 	<script src="front-end/js/index.js"></script>
 	
 </body>
 </html>
+<!-- Fin de page -->
