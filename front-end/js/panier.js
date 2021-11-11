@@ -114,7 +114,7 @@ function displayFormulaire(){
 // Formulaire
 let formulaire = document.querySelector(".formulaire");
 
-// Création des fontions d'écoutes qui appèlent l'input pour les conditions rejex.
+// Création des fontions d'écoutes qui appèlent l'input pour les conditions regex.
 formulaire.nom.addEventListener('change', function() {
 	validNom(this);
 });
@@ -135,7 +135,7 @@ formulaire.ville.addEventListener('change', function() {
 	validVille(this);
 });
 
-// Contrôle Rejex de l'input "Nom"
+// Contrôle Regex de l'input "Nom"
 const validNom = function(inputNom) {
 	const regexNomPrenom = new RegExp ("^[A-Za-z ]{1,30}$");
 
@@ -156,7 +156,7 @@ const validNom = function(inputNom) {
 	}
 };
 
-// Contrôle Rejex de l'input "Prénom"
+// Contrôle Regex de l'input "Prénom"
 const validPrenom = function(inputPrenom) {
 	const regexNomPrenom = new RegExp ("^[A-Za-z ]{1,30}$");
 
@@ -177,7 +177,7 @@ const validPrenom = function(inputPrenom) {
 	}
 };
 
-// Contrôle Rejex de l'input "E-mail"
+// Contrôle Regex de l'input "E-mail"
 const validMail = function(inputMail) {
 	const regexEmail = new RegExp ("^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
 
@@ -198,7 +198,7 @@ const validMail = function(inputMail) {
 	}
 };
 
-// Contrôle Rejex de l'input "Prénom"
+// Contrôle Regex de l'input "Prénom"
 const validAdresse = function(inputAdresse) {
 	const regexAdresse = new RegExp ("^[A-Za-z0-9, _-]{3,60}$");
 
@@ -219,7 +219,7 @@ const validAdresse = function(inputAdresse) {
 	}
 };
 
-// Contrôle Rejex de l'input "Prénom"
+// Contrôle Regex de l'input "Prénom"
 const validVille = function(inputVille) {
 	const regexVille = new RegExp ("^[A-Za-z- ]{1,30}$");
 
@@ -244,7 +244,7 @@ const validVille = function(inputVille) {
 document.getElementById("commander").addEventListener('click', function (e) {
 	e.preventDefault();
 	
-	// Contrôle 
+	// Contrôle des informations saisies en globalité.
 	if (validNom(formulaire.nom) 
 		&& validPrenom(formulaire.prenom)
 		&& validMail(formulaire.mail)
@@ -296,5 +296,3 @@ document.getElementById("commander").addEventListener('click', function (e) {
 	formulaire.click();
 });
 };
-
-
