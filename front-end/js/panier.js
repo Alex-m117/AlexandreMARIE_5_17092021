@@ -284,7 +284,6 @@ document.getElementById("commander").addEventListener('click', function (e) {
 		.then(response => response.json())
 		.then(response => { 
 			let commande = JSON.stringify(response);
-			console.log(response);
 			localStorage.setItem("order", commande);
 			window.location.href = "confirmation.html";
 		})

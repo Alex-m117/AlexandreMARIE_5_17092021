@@ -29,6 +29,7 @@ Réalisation du projet par **Alexandre MARIE**
 ## Composition du dépot
 
 - Readme.
+- Plan de tests.
 - Orinoco "Index.html".
 - Dossier back-end contenant l'API et les ressources back du projet.
 - Dossier front-end contenant les pages html, le CSS/SCSS (Bootstrap), ainsi que le Javascript du projet.
